@@ -34,7 +34,7 @@ class DentalScraper(BaseScraper):
         os.makedirs("images", exist_ok=True)
 
         for page in range(1, page_limit + 1):
-            url = f"{self.BASE_URL}?page={page}"
+            url = f"{self.BASE_URL}/page/{page}"
             page_content = self.fetch_page(url)
             soup = BeautifulSoup(page_content, "html.parser")
             products = soup.select(".product")
